@@ -2,19 +2,19 @@ const questions = [
   {
     question: "PIM ย่อมาจากอะไร ?",
     answers: [
-      { text: "พีไอเอ็ม", correct: true },
-      { text: "ปิ๋ม", correct: false },
-      { text: "พิม", correct: false },
-      { text: "ภีม", correct: false },
+      { text: "A) พีไอเอ็ม", correct: true },
+      { text: "B) ปิ๋ม", correct: false },
+      { text: "C) พิม", correct: false },
+      { text: "D) ภีม", correct: false },
     ],
   },
   {
     question: "NPRU ตั้งมากี่ปีแล้ว ?",
     answers: [
-      { text: "50", correct: false },
-      { text: "66", correct: false },
-      { text: "87", correct: false },
-      { text: "88", correct: true },
+      { text: "A) 50", correct: false },
+      { text: "B) 66", correct: false },
+      { text: "C) 87", correct: false },
+      { text: "D) 88", correct: true },
     ],
   },
 ];
@@ -87,6 +87,7 @@ function showScore() {
   result.style.display = "none";
   nextButton.innerHTML = "Play Again!!";
   nextButton.style.display = "block";
+  //location.reload();
 }
 
 function handleNextButton() {
@@ -102,7 +103,8 @@ nextButton.addEventListener("click", () => {
   if (currentQuestionIndex < questions.length) {
     handleNextButton();
   } else {
-    startQuiz();
+    //startQuiz();
+    location.reload();
   }
 });
 
