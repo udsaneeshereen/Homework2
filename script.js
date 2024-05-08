@@ -38,7 +38,7 @@ function displayQuestion() {
   let currentQuestion = questions[currentQuestionIndex];
   let questionNo = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
-
+  // result.style.display = "none";
   currentQuestion.answers.forEach(answer => {
     const button = document.createElement("button");
     button.innerHTML = answer.text;
@@ -66,11 +66,16 @@ function selectAnswer(e) {
     selectedBtn.classList.add("correct");
     point++;
     result.textContent = "คุณตอบถูกต้อง";
-    console.log("point = " + point);
+    // console.log("point = " + point);
   } else {
     selectedBtn.classList.add("incorrect");
     result.textContent = "คุณตอบผิด";
   }
+
+  // setTimeout(() => {
+  //   console.log("Delayed for 5 second.");
+  // }, 10000);
+  // result.textContent = "คลิกเพื่อเลือกคำตอบ";
 
   Array.from(answerButton.children).forEach(button => {
     if (button.dataset.correct === "true") {
@@ -87,11 +92,13 @@ function showScore() {
   result.style.display = "none";
   nextButton.innerHTML = "Play Again!!";
   nextButton.style.display = "block";
+
   //location.reload();
 }
 
 function handleNextButton() {
   currentQuestionIndex++;
+  result.textContent = "";
   if (currentQuestionIndex < questions.length) {
     displayQuestion();
   } else {
